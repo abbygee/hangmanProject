@@ -5,7 +5,11 @@ var hard = ['eminence', 'cordovan', 'cinnabar', 'mikado', 'cerulean', 'amaranth'
 var guesses = 6;
 var guessedLetters = [];
 
-var alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g','h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+//this was just moved from startgame() function to global
+var cat = document.getElementById('cat').value;
+
+var alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g','h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+    'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 function startGame(){
     //restarts the game
@@ -14,14 +18,13 @@ function startGame(){
     guessedLetters = [];
     document.getElementById('final').innerHTML = "";
     document.getElementById('wrong').innerHTML = "";
+    document.getElementById('guessedLetters').innerHTML = "";
 
-   /* for(var a = 0; a < alpha.length; a++){
-        document.getElementById()
-    }*/
+    for(var a = 0; a < alpha.length; a++){
+        document.getElementById(alpha[a]).disabled = false;
+    }
 
     //determines words from the difficulty the user chose
-    var cat = document.getElementById('cat').value;
-
     if(cat === 'default'){
         alert('Please choose a difficulty before continuing');
     }else{
@@ -68,7 +71,7 @@ function guessLetter(letter){
 
     // adds the guessed letter to the array and tells user what goes on
     guessedLetters.push(letter);
-    document.getElementById('guessedLetters').innerHTML = guessedLetters.toString();
+    document.getElementById('guessedLetters').innerHTML = "All guessed letters: " + guessedLetters.toString();
 
     // prints their current word status
     document.getElementById('guessed').innerHTML = printWord();
@@ -76,12 +79,23 @@ function guessLetter(letter){
     // tells user amount of guesses left
     document.getElementById('numGuesses').innerHTML = guesses.toString() + " guesses left";
 
+    var body = document.getElementsByTagName("body");
+
     if(printWord() !== word && guesses === 0){
         document.getElementById('final').innerHTML = "but you ran out of guesses and lost :( sorry loser, click start game to try again!";
         document.getElementById('wrong').innerHTML = "The correct answer was: " + word;
+        for(var i = 0; i < alpha.length; i++){
+            document.getElementById(alpha[i]).disabled = true;
+        }
+
+        //trying to code background to fit to the color of the word
+        //if(cat === 'Easy'){
+
+        //}
+        //body.style.backgroundColor = //huh//
     }
 
     if(printWord() === word){
-        document.getElementById('final').innerHTML = "Hurray! You won! Click start game to play agin :-)"
+        document.getElementById('final').innerHTML = "Winner winner chicken dinner! Click start game to play again :-)"
     }
 }

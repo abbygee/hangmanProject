@@ -4,3 +4,42 @@
     font-size: 25px;
     text-align: center;
 }
+
+body {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#allButtons, #numGuesses, #wrong, #guessed, #guessedLetters {
+    margin-top: 20px;
+}
+
+.sapphire{
+    background-color: #0f52ba;
+}
+
+.eminence{
+    background-color: #6e3974;
+}
+
+.cordovan{
+    background-color: #893f45;
+}
+
+.cinnabar{
+    background-color: #E44D2E;
+}
+
+.mikado{
+    background-color: #FFC40C;
+}
+
+.cerulean{
+    background-color: #2a52be;
+}
+
+.amaranth{
+    background-color: #F19CBB;
+}
