@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
-<body onload="buttons()">
+
+<body onload="setUp()">
 <h1>Hangman</h1>
 <h2>Guess that color name!</h2>
 
@@ -19,34 +20,7 @@
 
 <button onclick="startGame()">start game</button>
 
-<div id="allButtons">
-    <button onclick="guessLetter('a')" id="a">A</button>
-    <button onclick="guessLetter('b')" id="b">B</button>
-    <button onclick="guessLetter('c')" id="c">C</button>
-    <button onclick="guessLetter('d')" id="d">D</button>
-    <button onclick="guessLetter('e')" id="e">E</button>
-    <button onclick="guessLetter('f')" id="f">F</button>
-    <button onclick="guessLetter('g')" id="g">G</button>
-    <button onclick="guessLetter('h')" id="h">H</button>
-    <button onclick="guessLetter('i')" id="i">I</button>
-    <button onclick="guessLetter('j')" id="j">J</button>
-    <button onclick="guessLetter('k')" id="k">K</button>
-    <button onclick="guessLetter('l')" id="l">L</button>
-    <button onclick="guessLetter('m')" id="m">M</button>
-    <button onclick="guessLetter('n')" id="n">N</button>
-    <button onclick="guessLetter('o')" id="o">O</button>
-    <button onclick="guessLetter('p')" id="p">P</button>
-    <button onclick="guessLetter('q')" id="q">Q</button>
-    <button onclick="guessLetter('r')" id="r">R</button>
-    <button onclick="guessLetter('s')" id="s">S</button>
-    <button onclick="guessLetter('t')" id="t">T</button>
-    <button onclick="guessLetter('u')" id="u">U</button>
-    <button onclick="guessLetter('v')" id="v">V</button>
-    <button onclick="guessLetter('w')" id="w">W</button>
-    <button onclick="guessLetter('x')" id="x">X</button>
-    <button onclick="guessLetter('y')" id="y">Y</button>
-    <button onclick="guessLetter('z')" id="z">Z</button>
-</div>
+<div id="allButtons"></div>
 
 <div id="guessedLetters"></div>
 
