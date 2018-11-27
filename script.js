@@ -1,7 +1,7 @@
 var word = "";
-var easy = ["pink", "red", "green", "blue", "white", "black", "yellow", "orange"];
-var med = ['maroon', 'turquoise', 'beige', 'magenta', 'lavender', 'mauve', 'fuchsia', 'sapphire', 'slate'];
-var hard = ['eminence', 'cordovan', 'cinnabar', 'mikado', 'cerulean', 'amaranth'];
+var easy = ["pink", "red", "green", "blue", "brown", "black", "yellow", "orange"];
+var med = ['maroon', 'turquoise', 'beige', 'magenta', 'lavender', 'mauve', 'fuchsia', "sapphire", 'slate'];
+var hard = ["eminence", "cordovan", "cinnabar", "mikado", "cerulean", "amaranth"];
 var guesses = 6;
 var guessedLetters = [];
 var alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g','h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
@@ -100,30 +100,38 @@ function guessLetter(letter){
     }
 
     if(printWord() === word){
-        document.getElementById('final').innerHTML = "Winner winner chicken dinner! Click start game to play again :-)"
+        document.getElementById('final').innerHTML = "Winner winner chicken dinner! Click start game to play again :-)";
         backColor();
     }
 }
 
 function backColor(){
     var cat = document.getElementById('cat').value;
-    var body = document.getElementsByTagName("body");
+    var body = document.getElementById("back");
 
     //changes background to fulfill the color of the user's word
     if(cat === 'Easy'){
-        body.style.backgroundColor = word;
-    }
-
-    if(cat === 'Medium'){
-        if(word === 'sapphire'){
-            body.setAttribute('class', 'sapphire');
+        if(word === "black"){
+            body.style.color = "white";
+            body.style.backgroundColor = word;
         }else{
             body.style.backgroundColor = word;
         }
     }
 
-    if(cat === 'Hard'){
-        body.setAttribute('class', word);
+    if(cat === 'Medium'){
+        if(word === 'slate'){
+            body.style.backgroundColor = "lightslategrey";
+        }else{
+            if(word === "sapphire"){
+                body.setAttribute("class", word);
+            }else{
+                body.style.backgroundColor = word;
+            }
+        }
     }
 
+    if(cat === 'Hard'){
+        body.setAttribute("class", word);
+    }
 }
