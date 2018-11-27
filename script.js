@@ -1,5 +1,5 @@
 var word = "";
-var easy = ["pink", "red", "green", "blue", "brown", "black", "yellow", "orange"];
+var easy = ["pink", "red", "green", "blue", "brown", "yellow", "orange"];
 var med = ['maroon', 'turquoise', 'beige', 'magenta', 'lavender', 'mauve', 'fuchsia', "sapphire", 'slate'];
 var hard = ["eminence", "cordovan", "cinnabar", "mikado", "cerulean", "amaranth"];
 var guesses = 6;
@@ -13,6 +13,7 @@ function setUp(){
         var btn = document.createElement('button');
 
         btn.setAttribute("id", alpha[i]);
+        btn.setAttribute("class", "w3-button w3-blue w3-border");
         btn.setAttribute("onclick","guessLetter(this.id)");
         btn.innerHTML = alpha[i].toLocaleUpperCase();
 
@@ -28,6 +29,7 @@ function startGame(){
     document.getElementById('final').innerHTML = "";
     document.getElementById('wrong').innerHTML = "";
     document.getElementById('guessedLetters').innerHTML = "";
+    document.getElementById("back").style.backgroundColor = "initial";
 
     for(var a = 0; a < alpha.length; a++){
         document.getElementById(alpha[a]).disabled = false;
@@ -73,35 +75,48 @@ function printWord(){
 }
 
 function guessLetter(letter){
-    document.getElementById(letter).disabled = true;
+    // checks if the user has chosen a category yet
+    var cat = document.getElementById('cat').value;
+    if(cat === 'default') {
+        alert('Please choose a difficulty before continuing');
+    }else{
+        document.getElementById(letter).disabled = true;
 
-    if(word.indexOf(letter) === -1 && guesses > 0 && printWord() !== word){
-        guesses--;
-    }
-
-    // adds the guessed letter to the array and tells user what goes on
-    guessedLetters.push(letter);
-    document.getElementById('guessedLetters').innerHTML = "All guessed letters: " + guessedLetters.toString();
-
-    // prints their current word status
-    document.getElementById('guessed').innerHTML = printWord();
-
-    // tells user amount of guesses left
-    document.getElementById('numGuesses').innerHTML = guesses.toString() + " guesses left";
-
-    //determines what happens when the user wins or loses
-    if(printWord() !== word && guesses === 0){
-        document.getElementById('final').innerHTML = "but you ran out of guesses and lost :( sorry loser, click start game to try again!";
-        document.getElementById('wrong').innerHTML = "The correct answer was: " + word;
-        for(var i = 0; i < alpha.length; i++){
-            document.getElementById(alpha[i]).disabled = true;
+        if(word.indexOf(letter) === -1 && guesses > 0 && printWord() !== word){
+            guesses--;
         }
-        backColor();
-    }
 
-    if(printWord() === word){
-        document.getElementById('final').innerHTML = "Winner winner chicken dinner! Click start game to play again :-)";
-        backColor();
+        // adds the guessed letter to the array and tells user what goes on
+        guessedLetters.push(letter);
+        document.getElementById('guessedLetters').innerHTML = "All guessed letters: " + guessedLetters.toString();
+
+        // prints their current word status
+        document.getElementById('guessed').innerHTML = printWord();
+
+        // tells user amount of guesses left
+        if(guesses === 1){
+            document.getElementById('numGuesses').innerHTML = guesses.toString() + " guess left";
+        }else{
+            document.getElementById('numGuesses').innerHTML = guesses.toString() + " guesses left";
+        }
+
+        //determines what happens when the user wins or loses
+        if(printWord() !== word && guesses === 0){
+            document.getElementById('final').innerHTML = "but you ran out of guesses and lost :( sorry loser, click start game to try again!";
+            document.getElementById('wrong').innerHTML = "The correct answer was: " + word;
+            for(var i = 0; i < alpha.length; i++){
+                document.getElementById(alpha[i]).disabled = true;
+            }
+            backColor();
+        }
+
+        if(printWord() === word){
+            document.getElementById('final').innerHTML = "Winner winner chicken dinner! Click start game to play again :-)";
+            for(var i = 0; i < alpha.length; i++){
+                document.getElementById(alpha[i]).disabled = true;
+            }
+            backColor();
+        }
     }
 }
 
@@ -111,12 +126,7 @@ function backColor(){
 
     //changes background to fulfill the color of the user's word
     if(cat === 'Easy'){
-        if(word === "black"){
-            body.style.color = "white";
-            body.style.backgroundColor = word;
-        }else{
-            body.style.backgroundColor = word;
-        }
+        body.style.backgroundColor = word;
     }
 
     if(cat === 'Medium'){
@@ -124,7 +134,7 @@ function backColor(){
             body.style.backgroundColor = "lightslategrey";
         }else{
             if(word === "sapphire"){
-                body.setAttribute("class", word);
+                body.style.backgroundColor = "#0f52ba";
             }else{
                 body.style.backgroundColor = word;
             }
@@ -132,6 +142,23 @@ function backColor(){
     }
 
     if(cat === 'Hard'){
-        body.setAttribute("class", word);
+        if(word === "eminence"){
+            body.style.backgroundColor = "#6e3974";
+        }
+        if(word === "cordovan"){
+            body.style.backgroundColor = "#893f45";
+        }
+        if(word === "cinnabar"){
+            body.style.backgroundColor = "#E44D2E";
+        }
+        if(word === "mikado"){
+            body.style.backgroundColor = "#FFC40C";
+        }
+        if(word === "cerulean"){
+            body.style.backgroundColor = "#2a52be";
+        }
+        if(word === "amaranth"){
+            body.style.backgroundColor = "#F19CBB";
+        }
     }
 }

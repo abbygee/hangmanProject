@@ -20,6 +20,10 @@ body {
     font-size: 30px;
 }
 
+#head {
+    font-family: 'Montserrat Subrayada';
+}
+
 .sapphire{
     background-color: #0f52ba;
 }
@@ -47,3 +51,4 @@ body {
 .amaranth{
     background-color: #F19CBB;
 }
+
