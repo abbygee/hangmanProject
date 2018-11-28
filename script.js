@@ -1,6 +1,6 @@
 var word = "";
 var easy = ["pink", "red", "green", "blue", "brown", "yellow", "orange"];
-var med = ['maroon', 'turquoise', 'beige', 'magenta', 'lavender', 'mauve', 'fuchsia', "sapphire", 'slate'];
+var med = ['maroon', 'turquoise', 'beige', 'magenta', 'lavender', 'fuchsia', "sapphire", 'slate'];
 var hard = ["eminence", "cordovan", "cinnabar", "mikado", "cerulean", "amaranth"];
 var guesses = 6;
 var guessedLetters = [];
@@ -13,7 +13,7 @@ function setUp(){
         var btn = document.createElement('button');
 
         btn.setAttribute("id", alpha[i]);
-        btn.setAttribute("class", "w3-button w3-blue w3-border");
+        btn.setAttribute("class", "w3-button w3-white w3-border w3-border-black w3-round-large");
         btn.setAttribute("onclick","guessLetter(this.id)");
         btn.innerHTML = alpha[i].toLocaleUpperCase();
 

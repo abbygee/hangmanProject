@@ -5,15 +5,16 @@
     <title>Abby's Hangman Game</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat Subrayada' rel='stylesheet'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat Subrayada' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet'>
 </head>
 
-<body id="back" onload="setUp()">
+<body id="back" class="w3-capriola" onload="setUp()">
 
-<div id="head">
-    <h1>Hangman</h1>
-    <h2>Guess that color name!</h2>
+<div id="headers">
+    <h1 class="w3-mont">Hangman</h1>
+    <h2 class="w3-mont">Guess that color name!</h2>
 </div>
 
 
@@ -24,19 +25,20 @@
     <option>Hard</option>
 </select>
 
-<button onclick="startGame()">start game</button>
+<button id="start" class="w3-button w3-border w3-border-black w3-round-large" onclick="startGame()">start game</button>
 
 <div id="allButtons"></div>
 
-<div id="guessedLetters"></div>
+<div id="below">
+    <div id="guessedLetters"></div>
 
-<div id="numGuesses"></div>
+    <div id="numGuesses"></div>
 
-<div id="guessed"></div>
+    <div id="guessed"></div>
 
-<div id="wrong"></div>
-<div id="final"></div>
-
+    <div id="wrong"></div>
+    <div id="final"></div>
+</div>
 
 </body>
 </html>

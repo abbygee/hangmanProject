@@ -1,3 +1,6 @@
+#headers, #below, #cat, #start {
+    background-color: rgba(255, 255, 255, 0.3);
+}
 #letter {
     width: 40px;
     height: 40px;
@@ -16,39 +19,21 @@ body {
     margin-top: 20px;
 }
 
+#cat {
+    font-size: 18px;
+    margin: 20px;
+    border-color: black;
+}
+
 #guessed {
     font-size: 30px;
 }
 
-#head {
+.w3-mont {
     font-family: 'Montserrat Subrayada';
 }
 
-.sapphire{
-    background-color: #0f52ba;
-}
-
-.eminence{
-    background-color: #6e3974;
-}
-
-.cordovan{
-    background-color: #893f45;
-}
-
-.cinnabar{
-    background-color: #E44D2E;
-}
-
-.mikado{
-    background-color: #FFC40C;
-}
-
-.cerulean{
-    background-color: #2a52be;
-}
-
-.amaranth{
-    background-color: #F19CBB;
+.w3-capriola {
+    font-family: 'Capriola';
 }
 
