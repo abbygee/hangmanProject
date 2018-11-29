@@ -23,7 +23,7 @@ function setUp(){
 }
 
 function startGame(){
-    //restarts the game
+    //restarts the game for the user
     word = "";
     guesses = 6;
     guessedLetters = [];
