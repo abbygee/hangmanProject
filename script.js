@@ -8,6 +8,7 @@ var alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g','h', 'i', 'j', 'k', 'l', 'm', 'n'
     'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 function setUp(){
+    document.getElementById("img").src = "images/6.png";
     for(var i = 0; i < alpha.length; i++){
 
         var btn = document.createElement('button');
