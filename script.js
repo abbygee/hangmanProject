@@ -30,6 +30,7 @@ function startGame(){
     document.getElementById('wrong').innerHTML = "";
     document.getElementById('guessedLetters').innerHTML = "";
     document.getElementById("back").style.backgroundColor = "initial";
+    document.getElementById("img").src = "images/6.png";
 
     for(var a = 0; a < alpha.length; a++){
         document.getElementById(alpha[a]).disabled = false;
@@ -84,6 +85,7 @@ function guessLetter(letter){
 
         if(word.indexOf(letter) === -1 && guesses > 0 && printWord() !== word){
             guesses--;
+            document.getElementById("img").src = "images/" + guesses + ".png";
         }
 
         // adds the guessed letter to the array and tells user what goes on

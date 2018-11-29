@@ -1,6 +1,13 @@
 #headers, #below, #cat, #start {
     background-color: rgba(255, 255, 255, 0.3);
 }
+
+#headers {
+    border-top-style: solid;
+    border-top-width: 5px;
+    border-top-color: transparent;
+}
+
 #letter {
     width: 40px;
     height: 40px;
@@ -27,6 +34,16 @@ body {
 
 #guessed {
     font-size: 30px;
+}
+
+#start {
+    font-size: 17px;
+}
+
+#img {
+    width: 15%;
+    position: relative;
+    bottom: 50px;
 }
 
 .w3-mont {
